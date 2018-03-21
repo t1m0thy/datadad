@@ -1,3 +1,4 @@
+import argparse
 import pandas as pd
 import os
 import xlrd
@@ -66,16 +67,27 @@ context = {"towns": []}
 alltowns = sorted(list(set(df["Town"].dropna())))
 total = len(alltowns)
 
-# for i, t in enumerate(alltowns):
-#     print("{} of {}: {}".format(i, total,  t))
-#     context["towns"].append(build_outputs(df, t))
 def just_link(townname):
     townfilename = townname.replace(' ','').lower()
     path = os.path.join(DIST_PATH, townfilename)
     htmlname = "towndata/{}/{}.html".format(townfilename, townfilename)
     return {"label": townname, "href": htmlname}
 
-context["towns"] = [just_link(t) for t in alltowns]
+
+parser = argparse.ArgumentParser(description='Build the lookma website.')
+parser.add_argument('-a', '--all', default=False, action='store_true',
+                    help='build all town sites')
+
+args = parser.parse_args()
+
+
+if args.all:
+    for i, t in enumerate(alltowns):
+        print("{} of {}: {}".format(i, total,  t))
+        context["towns"].append(build_outputs(df, t))
+    else:
+        context["towns"] = [just_link(t) for t in alltowns]
+
 with open(os.path.join(DIST_PATH, 'index.html'), 'w') as fp:
     fp.write(j2_env.get_template('index.html').render(**context))
 
