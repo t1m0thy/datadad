@@ -6,6 +6,7 @@
         <title>Look@MA</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         <link rel="manifest" href="site.webmanifest">
         <link rel="apple-touch-icon" href="icon.png">
@@ -18,25 +19,39 @@
         <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
+
+        <div class="container">
+
         <h5>
-        Welcome to Look@MA.  This is a site for exploring Data about the towns of Massachusetts.
+        Welcome datamoms and datadads.
         </h5>
-        <p>
-        Currently, it's limited to plots about the schools based on publicly available data.  Use the find command of your browser to search for a town name below.  Click the link to find plots.  To compare, just open links into new browser windows and compare side by side.
-        </p>
-        Thanks for checking it out.  Please e-mail me with questions, ideas, or comments.
-        -Tim
+          <div class="panel panel-default">
+            This is a site for exploring Data about the towns of Massachusetts.
+            <div class="panel-body">
 
-        </p>
 
-        <ul id="townlist">
-        {% for town in towns %}
-            <li><a href="{{ town.href }}">{{ town.label }}</a></li>
-        {% endfor %}
-        </ul>
+            To learn what some of these values mean, <a href="http://profiles.doe.mass.edu/help/data.aspx">check here</a>
+            <p>
+            Currently, it's limited to plots about the schools based on publicly available data.  Use the find command of your browser to search for a town name below.  Click the link to find plots.  To compare, just open links into new browser windows and compare side by side.
+            </p>
+            Thanks for checking it out.  Please e-mail me with questions, ideas, or comments.
+            -Tim
+
+            </p>
+
+            <ul id="townlist">
+            {% for town in towns %}
+                <li><a href="{{ town.href }}">{{ town.label }}</a></li>
+            {% endfor %}
+            </ul>
+            </div>
+          </div>
+        </div>
 
         <script src="js/vendor/modernizr-3.5.0.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
