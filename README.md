@@ -1,6 +1,6 @@
 # lookma
 A look at MA data
 
-Env setup:
+Env setup (replace dd with whatever env name you want):
 
-        conda create -n pandas python=3 pandas jupyter
+		conda create --name dd --file spec-file.txt
